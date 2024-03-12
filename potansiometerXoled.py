@@ -1,7 +1,3 @@
-"""
-       Klasor içerisindeki ssd1306.py dosyası
-       MicroPython cihazına yüklenmelidir.
-"""
 from machine import Pin, SoftI2C, ADC
 import ssd1306
 from time import sleep
