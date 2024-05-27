@@ -7,7 +7,8 @@ import time
 
 i2c = SoftI2C(scl=Pin(5), sda=Pin(4))
 sensor = dht.DHT11(Pin(14))
-led = Pin(12, Pin.OUT)
+led1 = Pin(12, Pin.OUT)
+led2 = Pin(13, Pin.OUT)
 
 motor=Servo(pin=22)
 oled_width = 128
@@ -17,7 +18,8 @@ oled = ssd1306.SSD1306_I2C(oled_width, oled_height, i2c)
 while True:
   try:
     sleep(2)
-    led.value(0)
+    led1.value(0)
+    led2.value(1)
     sensor.measure()
     temp = sensor.temperature()
     print(temp)
@@ -36,4 +38,5 @@ while True:
     oled.text('sensor.', 0, 10)
     oled.show(  )
     oled.fill(0)
-    led.value(1)
+    led1.value(1)
+    led2.value(0)
